@@ -11,17 +11,19 @@ while True:
 	recFile.write(message)
 	serverSocket.settimeout(3)
 	message, clientAddress = serverSocket.recvfrom(1024)
-	if not (isFile(message.decode())):
+	if len(message.decode()) == 1:
 		option = message.decode()
 	else:
 		modifiedMessage = message.decode()
-	if (option): 
-		if (option = 'l'):
-			
-		elif (option = 'w'):
-		
-		elif (option = 'c'):
-
+	if (option):
+		recFile.close()
+		recFile = open("temp.txt", "rb") 
+		if option == 'l':
+			finalMessage = "Lines: " + len(recFile) + "\n" + modifiedMessage
+		elif (option == 'w'):
+			finalMessage = "Words: " + len(recFile.split(' ')) + '\n' + modifiedMessage
+		elif (option == 'c'):
+			finalMessage = "Characters: " + len(recFile) + '\n' + modifiedMessage
 		else:
-			modifiedMessage.append(0)
-	serverSocket.sendto(modifiedMessage.encode(),clientAddress)	
+			finalMessage = modifiedMessage
+	serverSocket.sendto(finalMessage.encode(),clientAddress)	

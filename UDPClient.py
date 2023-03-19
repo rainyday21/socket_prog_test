@@ -1,6 +1,6 @@
 from socket import *
 import sys
-serverName = input("Enter server name: ")
+#serverName = input("Enter server name: ")
 serverPort = 12000
 if (sys.argv[3]):
     serverName = sys.argv[1]
@@ -9,8 +9,11 @@ if (sys.argv[3]):
 elif (sys.argv[2]):
     serverName = sys.argv[1]
     file = open(sys.argv[2], "rb")
-else:
+elif (sys.argv[1]):
     serverName = sys.argv[1]
+    file = open(input('Enter filename'), "rb")
+else:
+    serverName = input('Enter server name: ')
     file = open(input('Enter filename'), "rb")
 serverPort = 12000
 clientSocket = socket(AF_INET, SOCK_DGRAM)
