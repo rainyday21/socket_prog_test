@@ -7,6 +7,6 @@ count=0
 while True:
 	message, clientAddress = serverSocket.recvfrom(1024)
 	modifiedMessage = message.decode()
-	count+=1
-	print(count)
+	# insert character checking command here
+	# 
 	serverSocket.sendto(modifiedMessage.encode(),clientAddress)	
