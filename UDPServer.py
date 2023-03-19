@@ -11,4 +11,5 @@ while True:
 	words = "Words: " + str(len(message.decode().split(' '))) + '\n'
 	char = "Characters: " + str(len(message.decode())/4) + '\n'
 	finalMessage = lines + words + char + modifiedMessage
-	serverSocket.sendto(finalMessage.encode(),clientAddress)	
+	serverSocket.sendto(finalMessage.encode(),clientAddress)
+	serverSocket.timeout(2)	
