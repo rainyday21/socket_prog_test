@@ -6,7 +6,17 @@ print("The server is ready to receive")
 count=0
 while True:
 	message, clientAddress = serverSocket.recvfrom(1024)
-	modifiedMessage = message.decode()
-	# insert character checking command here
-	# 
+	if not (isFile(message.decode())):
+		option = message.decode()
+	else:
+		modifiedMessage = message.decode()
+	if (option): 
+		if (option = 'l'):
+			
+		elif (option = 'w'):
+		
+		elif (option = 'c'):
+
+		else:
+			modifiedMessage.append(0)
 	serverSocket.sendto(modifiedMessage.encode(),clientAddress)	
