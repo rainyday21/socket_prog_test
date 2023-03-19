@@ -7,5 +7,6 @@ count=0
 while True:
 	message, clientAddress = serverSocket.recvfrom(1024)
 	modifiedMessage = message.decode()
-	
+	count+=1
+	print(count)
 	serverSocket.sendto(modifiedMessage.encode(),clientAddress)	
