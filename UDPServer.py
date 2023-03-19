@@ -19,11 +19,11 @@ while True:
 		recFile.close()
 		recFile = open("temp.txt", "rb") 
 		if option == 'l':
-			finalMessage = "Lines: " + len(recFile) + "\n" + modifiedMessage
+			finalMessage = "Lines: " + str(len(recFile.read())) + "\n" + modifiedMessage
 		elif (option == 'w'):
-			finalMessage = "Words: " + len(recFile.split(' ')) + '\n' + modifiedMessage
+			finalMessage = "Words: " + str(len((recFile.read()).split(' '))) + '\n' + modifiedMessage
 		elif (option == 'c'):
-			finalMessage = "Characters: " + len(recFile) + '\n' + modifiedMessage
+			finalMessage = "Characters: " + str(len(recFile.read())) + '\n' + modifiedMessage
 		else:
 			finalMessage = modifiedMessage
 	serverSocket.sendto(finalMessage.encode(),clientAddress)	
