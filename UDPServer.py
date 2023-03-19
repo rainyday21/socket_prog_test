@@ -7,9 +7,9 @@ count=0
 while True:
 	message, clientAddress = serverSocket.recvfrom(1024)
 	modifiedMessage = message.decode().lower()
-	lines = "Lines: " + message.decode().count('\n') + '\n'
-	words = "Words: " + str(len(message.decode().split(' '))) + '\n'
-	char = "Characters: " + str(len(message.decode())/4) + '\n'
-	finalMessage = lines + words + char + modifiedMessage
+	lines = "Lines: " + str(message.decode().count('\n')) + '\n'
+	words = "Words: " + str(len(message.decode().split(' '))-1) + '\n'
+	char = "Characters: " + str(len(message.decode())) + '\n'
+	finalMessage = lines + words + char + "File: \n" + modifiedMessage
 	serverSocket.sendto(finalMessage.encode(),clientAddress)
 	serverSocket.timeout(2)	
